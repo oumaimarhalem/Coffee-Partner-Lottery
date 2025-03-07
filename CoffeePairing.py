@@ -7,6 +7,10 @@ import os
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
 
+# count the number of participants
+participants_data = pd.read_csv(participants_csv)
+num_participants = len(form_data)
+
 # header names in the CSV file (name and e-mail of participants)
 header_name = "Your name:"
 header_email = "Your e-mail:"
@@ -19,6 +23,26 @@ new_pairs_csv = "Coffee Partner Lottery new pairs.csv"
 
 # path to CSV file that stores all pairings (to avoid repetition)
 all_pairs_csv = "Coffee Partner Lottery all pairs.csv"
+
+# ask user for group size
+while True:
+    try:
+        group_size = int(input("Please enter the desired group size (2 to 5): ")) 
+        
+        # check if the desired group size is valid
+        if 2 <= group_size <= 5:
+            
+            # check if there are enough participants for the chosen group size
+            if num_participants < group_size * 2:
+                print(f"Not enough participants. Please choose a smaller group size (up to {num_participants // 2}).")
+            
+            else:
+                break
+        else:
+            print("Please enter a number between 2 and 5.")
+    
+    except ValueError:
+        print("Invalid input. Please enter a number between 2 and 5.")
         
 # init set of old pairs
 opairs = set()
