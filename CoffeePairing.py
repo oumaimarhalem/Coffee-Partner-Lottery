@@ -9,7 +9,7 @@ participants_csv = "Coffee Partner Lottery participants.csv"
 
 # count the number of participants
 participants_data = pd.read_csv(participants_csv)
-num_participants = len(form_data)
+num_participants = len(participants_data)
 
 # header names in the CSV file (name and e-mail of participants)
 header_name = "Your name:"
@@ -65,16 +65,13 @@ formdata = pd.read_csv(participants_csv, sep=DELIMITER)
 # create duplicate-free list of participants
 participants = list(set(formdata[header_email]))
 
- # init set of new pairs
-npairs = set()
-
 # running set of participants
 nparticipants = copy.deepcopy(participants)
 
 # Boolean flag to check if new pairing has been found
 new_groups_found = False
 
-# try creating new groups until successful
+# try creating new pairing until successful
 while not new_groups_found:   # to do: add a maximum number of tries
 
     # create a list to store the groups in
@@ -96,13 +93,33 @@ while not new_groups_found:   # to do: add a maximum number of tries
             groups.append(group)
             nparticipants = nparticipants[group_size:]
 
-    # check if all new pairs are indeed new, else reset
-    if npairs.isdisjoint(opairs):
+    # check if any new pairings within groups are already in old pairs
+    ngroups = set()    
+    redundant_pair_found = False
+    
+    for group in groups:
+        # sort the group alphabetically
+        group.sort()
+        # check every possible pair in the group
+        for i in range(len(group)):
+            for j in range(i+1, len(group)):
+                pair = tuple(sorted([group[i], group[j]]))
+                if pair in opairs:
+                    redundant_pair_found = True
+                    break
+            if redundant_pair_found:
+                break
+        if redundant_pair_found:
+            break
+        # if no redundant pairs are found, add the group to ngroups
+        ngroups.add(tuple(group))
+    
+    # if no redundant pairs are found, the new groups are good, else reset
+    if not redundant_pair_found:
         new_groups_found = True
-    else:
-        npairs = set()
+    else: 
+        ngroups = set()
         nparticipants = copy.deepcopy(participants)
-
 
 # assemble output for printout
 output_string = ""
