@@ -123,11 +123,15 @@ output_string += "------------------------\n"
 output_string += "Today's coffee partners:\n"
 output_string += "------------------------\n"
 
-conversation_starter = get_conversation_starter()
+
 
 # create message and save it for each pair
 for pair in npairs:
     pair = list(pair)
+    
+    # Generate a unique conversation starter for each group
+    conversation_starter = get_conversation_starter()
+    
     output_string += "* "
     for i in range(0,len(pair)):
         name_email_pair = f"{formdata[formdata[header_email] == pair[i]].iloc[0][header_name]} ({pair[i]})"
