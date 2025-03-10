@@ -5,11 +5,19 @@ import copy
 import os
 import requests
 
+
 def get_conversation_starter():
     url = "https://official-joke-api.appspot.com/random_joke"
     response = requests.get(url)
     joke = response.json()
     return f"{joke['setup']} {joke['punchline']}"
+
+
+def save_message_to_file(pair, message, filename="coffee_groups_messages.txt"):  # Save messages
+    with open(filename, "a") as file:
+        file.write(f"Pair: {pair[0]} & {pair[1]}\n")
+        file.write(f"Message: {message}\n\n")
+
 
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
@@ -117,6 +125,7 @@ output_string += "------------------------\n"
 
 conversation_starter = get_conversation_starter()
 
+# create message and save it for each pair
 for pair in npairs:
     pair = list(pair)
     output_string += "* "
@@ -127,6 +136,16 @@ for pair in npairs:
         else:
             output_string += name_email_pair + "\n"
     output_string += f"\nConversation Starter:\n {conversation_starter}\n\n"  # Add conversation starter to output
+    
+    # Generate a personalized message for each pair
+    message = f"Hello {formdata[formdata[header_email] == pair[0]].iloc[0][header_name]} and {formdata[formdata[header_email] == pair[1]].iloc[0][header_name]},\n\n"
+    message += "You have been paired for a coffee meeting!\n"
+    message += f"Here's a conversation starter: {conversation_starter}\n\n"
+    message += "Enjoy your coffee!\n"
+
+    # Save the generated message for the pair
+    save_message_to_file(pair, message, "coffee_groups_messages.txt")
+
     
 
 
