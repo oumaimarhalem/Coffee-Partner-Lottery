@@ -3,13 +3,6 @@ import csv
 import random
 import copy
 import os
-import requests
-
-def get_conversation_starter():
-    url = "https://official-joke-api.appspot.com/random_joke"
-    response = requests.get(url)
-    joke = response.json()
-    return f"{joke['setup']} {joke['punchline']}"
 
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
@@ -107,15 +100,12 @@ while not new_pairs_found:   # to do: add a maximum number of tries
         nparticipants = copy.deepcopy(participants)
 
 
-
 # assemble output for printout
 output_string = ""
 
 output_string += "------------------------\n"
 output_string += "Today's coffee partners:\n"
 output_string += "------------------------\n"
-
-conversation_starter = get_conversation_starter()
 
 for pair in npairs:
     pair = list(pair)
@@ -126,10 +116,7 @@ for pair in npairs:
             output_string += name_email_pair + ", "
         else:
             output_string += name_email_pair + "\n"
-    output_string += f"\nConversation Starter:\n {conversation_starter}\n\n"  # Add conversation starter to output
     
-
-
 # write output to console
 print(output_string)
 
@@ -139,7 +126,7 @@ with open(new_pairs_txt, "wb") as file:
 
 # write new pairs into CSV file (for e.g. use in MailMerge)
 with open(new_pairs_csv, "w") as file:
-    header = ["name1", "email1", "name2", "email2", "name3", "email3", "conversation_starter"]
+    header = ["name1", "email1", "name2", "email2", "name3", "email3"]
     file.write(DELIMITER.join(header) + "\n")
     for pair in npairs:
         pair = list(pair)
