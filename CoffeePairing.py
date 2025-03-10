@@ -3,6 +3,17 @@ import csv
 import random
 import copy
 import os
+import time
+import sys
+import colorama
+
+# printing text with a typing effect
+def slow_print(text, delay=0.05):    
+    for char in text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print()
 
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
@@ -27,6 +38,7 @@ all_pairs_csv = "Coffee Partner Lottery all pairs.csv"
 # ask user for group size
 while True:
     try:
+        slow_print("Welcome to Brew Buddies! Let's espresso ourselves and make some frothy new friendships.")
         group_size = int(input("Please enter the desired group size (2 to 5): ")) 
         
         # check if the desired group size is valid
