@@ -38,7 +38,7 @@ all_pairs_csv = "Coffee Partner Lottery all pairs.csv"
 # ask user for group size
 while True:
     try:
-        slow_print("Welcome to Brew Buddies! Let's espresso ourselves and make some frothy new friendships.")
+        slow_print(colorama.Fore.GREEN + "Welcome to Brew Buddies! Let's espresso ourselves and make some frothy new friendships." + colorama.Fore.RESET)
         group_size = int(input("Please enter the desired group size (2 to 5): ")) 
         
         # check if the desired group size is valid
@@ -134,24 +134,26 @@ while not new_groups_found:   # to do: add a maximum number of tries
         nparticipants = copy.deepcopy(participants)
 
 # assemble output for printout
-output_string = ""
+slow_print(colorama.Fore.YELLOW + "The groups have been generated! \n")
+slow_print(colorama.Fore.YELLOW + "Who will you roast and toast with today? \n")
 
-output_string += "------------------------\n"
-output_string += "Today's coffee partners:\n"
-output_string += "------------------------\n"
+slow_print(colorama.Fore.CYAN +"------------------------\n")
+slow_print(colorama.Fore.CYAN +"Today's Brew Buddies:\n")
+slow_print(colorama.Fore.CYAN + "------------------------\n")
 
-for pair in npairs:
-    pair = list(pair)
-    output_string += "* "
-    for i in range(0,len(pair)):
-        name_email_pair = f"{formdata[formdata[header_email] == pair[i]].iloc[0][header_name]} ({pair[i]})"
-        if i < len(pair)-1:
-            output_string += name_email_pair + ", "
-        else:
-            output_string += name_email_pair + "\n"
+for i, group in enumerate(ngroups, start=1):
+    slow_print(colorama.Fore.CYAN + f"Group {i}:")
     
-# write output to console
-print(output_string)
+    for participant in group:
+        name = XXXXX # TODO
+        email = XXXXX # TODO
+        
+        slow_print(colorama.Fore.CYAN + f"     {name:<25}: | {email}")
+    
+    slow_print("") # blank line for spacing between groups
+        
+slow_print(colorama.Fore.CYAN + "Enjoy your coffee and great conversations! You're on the perfect blend for connection \n")
+    
 
 # write output into text file for later use
 with open(new_pairs_txt, "wb") as file:
