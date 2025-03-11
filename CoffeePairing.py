@@ -69,36 +69,17 @@ AnswerData = []
 for response in result["responses"]:
     answers = response["answers"]
     
-    Name = next(iter(answers.get("4d4a31cf", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
-    Email = next(iter(answers.get("0b6dbdc2", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
-    
+    Name = next(iter(answers.get("4d9aecd4", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    Email = next(iter(answers.get("72137182", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    print(Name,Email)
     if Name and Email:  # Ensure both name and email exist
         AnswerData.append({"name": Name, "email": Email})
 
 # Print extracted names and emails as JSON
 print(AnswerData)
 
-
-# path to the CSV files with participant data
-participants_csv = "Coffee Partner Lottery participants.csv"
-
-# count the number of participants
-participants_data = pd.read_csv(participants_csv)
-num_participants = len(participants_data)
-
-# header names in the CSV file (name and e-mail of participants)
-header_name = "Your name:"
-header_email = "Your e-mail:"
-
-# path to TXT file that stores the pairings of this round
-new_pairs_txt = "Coffee Partner Lottery new pairs.txt"
-
-# path to CSV file that stores the pairings of this round
-new_pairs_csv = "Coffee Partner Lottery new pairs.csv"
-
-# path to CSV file that stores all pairings (to avoid repetition)
-all_pairs_csv = "Coffee Partner Lottery all pairs.csv"
-
+num_participants=len(AnswerData)
+print(num_participants)
 # ask user for group size
 while True:
     try:
@@ -139,7 +120,12 @@ if os.path.exists(all_pairs_csv):
 formdata = pd.read_csv(participants_csv, sep=DELIMITER)
 
 # create duplicate-free list of participants
-participants = list(set(formdata[header_email]))
+
+participants=[]
+emails={}
+for i in range(len(AnswerData)):
+    participants.append((AnswerData[i]['name']))
+    emails.update({(AnswerData[i]['name']):(AnswerData[i]['email'])})
 
 # running set of participants
 nparticipants = copy.deepcopy(participants)
@@ -206,12 +192,12 @@ slow_print(colorama.Fore.CYAN +"Today's Brew Buddies:\n")
 slow_print(colorama.Fore.CYAN + "------------------------\n")
 
 for i, group in enumerate(ngroups, start=1):
-  message = ""
-  message += f"Group {i}:"
+    message = ""
+    message += f"Group {i}:"
       
     for participant in group:
-        name = XXXXX # TODO
-        email = XXXXX # TODO
+        name = participant
+        email = emails[name]
         conversation_starter = get_conversation_starter()
         
         message += f"     {name:<25}: | {email}\n"
