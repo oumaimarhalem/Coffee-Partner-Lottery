@@ -38,7 +38,19 @@ form_id = "1eVElX0Ci_jFXhPhmety9IeySqea_B63JYceqm62MN70"
 result = service.forms().responses().list(formId=form_id).execute()
 print(result)
 
+AnswerData = []
 
+for response in result["responses"]:
+    answers = response["answers"]
+    
+    Name = next(iter(answers.get("4d4a31cf", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    Email = next(iter(answers.get("0b6dbdc2", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    
+    if Name and Email:  # Ensure both name and email exist
+        AnswerData.append({"name": Name, "email": Email})
+
+# Print extracted names and emails as JSON
+print(AnswerData)
 
 
 # path to the CSV files with participant data
