@@ -13,6 +13,7 @@ from httplib2 import Http
 from oauth2client import client, file, tools
 import json
 
+
 def get_conversation_starter():
     url = "https://official-joke-api.appspot.com/random_joke"
     response = requests.get(url)
@@ -20,10 +21,12 @@ def get_conversation_starter():
     return f"{joke['setup']} {joke['punchline']}"
 
 
-def save_message_to_file(pair, message, filename="coffee_groups_messages.txt"):  # Save messages
+def save_message_to_file(group, message, filename="coffee_groups_messages.txt"):
     with open(filename, "a") as file:
-        file.write(f"Pair: {pair[0]} & {pair[1]}\n")
+        file.write(f"Group: {', '.join(group)}\n")
         file.write(f"Message: {message}\n\n")
+
+
 
 # printing text with a typing effect
 def slow_print(text, delay=0.05):    
@@ -106,6 +109,8 @@ opairs = set()
 
 DELIMITER=','
 
+
+'''
 # load all previous pairings (to avoid redundancies)
 if os.path.exists(all_pairs_csv):
     with open(all_pairs_csv, "r") as file:
@@ -116,8 +121,12 @@ if os.path.exists(all_pairs_csv):
                 group.append(row[i])                        
             opairs.add(tuple(group))
 
+
+
 # load participant's data
 formdata = pd.read_csv(participants_csv, sep=DELIMITER)
+'''
+
 
 # create duplicate-free list of participants
 
@@ -199,7 +208,7 @@ for i, group in enumerate(ngroups, start=1):
         name = participant
         email = emails[name]
         conversation_starter = get_conversation_starter()
-        
+        2
         message += f"     {name:<25}: | {email}\n"
     
     message += f"\nConversation Starter:\n {conversation_starter}"
@@ -210,38 +219,6 @@ for i, group in enumerate(ngroups, start=1):
     
 slow_print(colorama.Fore.CYAN + "Enjoy your coffee and great conversations! You're on the perfect blend for connection \n")
     
-
-# write output into text file for later use
-with open(new_pairs_txt, "wb") as file:
-    file.write(output_string.encode("utf8"))
-
-# write new pairs into CSV file (for e.g. use in MailMerge)
-with open(new_pairs_csv, "w") as file:
-    header = ["name1", "email1", "name2", "email2", "name3", "email3", "conversation_starter"]
-    file.write(DELIMITER.join(header) + "\n")
-    for pair in npairs:
-        pair = list(pair)
-        for i in range(0,len(pair)):
-            name_email_pair = f"{formdata[formdata[header_email] == pair[i]].iloc[0][header_name]}{DELIMITER} {pair[i]}"
-            if i < len(pair)-1:
-                file.write(name_email_pair + DELIMITER + " ")
-            else:
-                file.write(name_email_pair + "\n")
-                
-# append pairs to history file
-if os.path.exists(all_pairs_csv):
-    mode = "a"
-else:
-    mode = "w"
-
-with open(all_pairs_csv, mode) as file:
-    for pair in npairs:
-        pair = list(pair)
-        for i in range(0,len(pair)):
-            if i < len(pair)-1:
-                file.write(pair[i] + DELIMITER)
-            else:
-                file.write(pair[i] + "\n")
 
 
              

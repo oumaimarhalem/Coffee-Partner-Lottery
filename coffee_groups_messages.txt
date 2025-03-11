@@ -1,50 +1,20 @@
-Pair: alice.smith@email.com & kim.baker@email.com
-Message: Hello Alice Smith and Kim Baker,
-
-You have been paired for a coffee meeting!
-Here's a conversation starter: What happens to a frog's car when it breaks down? It gets toad away
-
-Enjoy your coffee!
-
-
-Pair: bob.smith@email.com & eve.miller@email.com
-Message: Hello Bob Smith and Eve Miller,
-
-You have been paired for a coffee meeting!
-Here's a conversation starter: What happens to a frog's car when it breaks down? It gets toad away
-
-Enjoy your coffee!
-
-
-Pair: alice.smith@email.com & eve.miller@email.com
-Message: Hello Alice Smith and Eve Miller,
-
-You have been paired for a coffee meeting!
-Here's a conversation starter: What did Michael Jackson name his denim store? Billy Jeans!
-
-Enjoy your coffee!
-
-
-Pair: bob.smith@email.com & john.doe@email.com
-Message: Hello Bob Smith and John Doe,
-
-You have been paired for a coffee meeting!
-Here's a conversation starter: What do you call a girl between two posts? Annette.
-
-Enjoy your coffee!
-
-
-Pair: liang & oums rhalem
+Group: liang, oum rhalem
 Message: Group 1:     liang                    : | julien.l.wang@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why can’t you hear a pterodactyl go to the bathroom? The p is silent.
+
+Group: Test, oums rhalem
+Message: Group 2:     Test                     : | Test@gmail.com
      oums rhalem              : | o.rhalem@students.uu.nl
 
 Conversation Starter:
- What creature is smarter than a talking parrot? A spelling bee.
+ A DHCP packet walks into a bar and asks for a beer. Bartender says, "here, but I’ll need that back in an hour!"
 
-Pair: liang & oums rhalem
-Message: Group 1:     liang                    : | julien.l.wang@gmail.com
-     oums rhalem              : | o.rhalem@students.uu.nl
+Group: Marijn de Ruiter
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
 
 Conversation Starter:
- Why did the invisible man turn down the job offer? He couldn't see himself doing it
+ Dad, can you put my shoes on? I don't think they'll fit me.
 
