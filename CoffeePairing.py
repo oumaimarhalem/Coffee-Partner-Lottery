@@ -6,6 +6,19 @@ import os
 import time
 import sys
 import colorama
+import requests
+
+def get_conversation_starter():
+    url = "https://official-joke-api.appspot.com/random_joke"
+    response = requests.get(url)
+    joke = response.json()
+    return f"{joke['setup']} {joke['punchline']}"
+
+
+def save_message_to_file(pair, message, filename="coffee_groups_messages.txt"):  # Save messages
+    with open(filename, "a") as file:
+        file.write(f"Pair: {pair[0]} & {pair[1]}\n")
+        file.write(f"Message: {message}\n\n")
 
 # printing text with a typing effect
 def slow_print(text, delay=0.05):    
@@ -142,16 +155,22 @@ slow_print(colorama.Fore.CYAN +"Today's Brew Buddies:\n")
 slow_print(colorama.Fore.CYAN + "------------------------\n")
 
 for i, group in enumerate(ngroups, start=1):
-    slow_print(colorama.Fore.CYAN + f"Group {i}:")
-    
+  message = ""
+  message += f"Group {i}:"
+      
     for participant in group:
         name = XXXXX # TODO
         email = XXXXX # TODO
+        conversation_starter = get_conversation_starter()
         
-        slow_print(colorama.Fore.CYAN + f"     {name:<25}: | {email}")
+        message += f"     {name:<25}: | {email}\n"
     
-    slow_print("") # blank line for spacing between groups
-        
+    message += f"\nConversation Starter:\n {conversation_starter}"
+    message += "" # blank line for spacing between groups
+    
+    save_message_to_file(group, message, "coffee_groups_messages.txt")
+    slow_print(colorama.Fore.CYAN + message)
+    
 slow_print(colorama.Fore.CYAN + "Enjoy your coffee and great conversations! You're on the perfect blend for connection \n")
     
 
@@ -161,7 +180,7 @@ with open(new_pairs_txt, "wb") as file:
 
 # write new pairs into CSV file (for e.g. use in MailMerge)
 with open(new_pairs_csv, "w") as file:
-    header = ["name1", "email1", "name2", "email2", "name3", "email3"]
+    header = ["name1", "email1", "name2", "email2", "name3", "email3", "conversation_starter"]
     file.write(DELIMITER.join(header) + "\n")
     for pair in npairs:
         pair = list(pair)

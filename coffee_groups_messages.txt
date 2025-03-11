@@ -1,0 +1,36 @@
+Pair: alice.smith@email.com & kim.baker@email.com
+Message: Hello Alice Smith and Kim Baker,
+
+You have been paired for a coffee meeting!
+Here's a conversation starter: What happens to a frog's car when it breaks down? It gets toad away
+
+Enjoy your coffee!
+
+
+Pair: bob.smith@email.com & eve.miller@email.com
+Message: Hello Bob Smith and Eve Miller,
+
+You have been paired for a coffee meeting!
+Here's a conversation starter: What happens to a frog's car when it breaks down? It gets toad away
+
+Enjoy your coffee!
+
+
+Pair: alice.smith@email.com & eve.miller@email.com
+Message: Hello Alice Smith and Eve Miller,
+
+You have been paired for a coffee meeting!
+Here's a conversation starter: What did Michael Jackson name his denim store? Billy Jeans!
+
+Enjoy your coffee!
+
+
+Pair: bob.smith@email.com & john.doe@email.com
+Message: Hello Bob Smith and John Doe,
+
+You have been paired for a coffee meeting!
+Here's a conversation starter: What do you call a girl between two posts? Annette.
+
+Enjoy your coffee!
+
+
