@@ -28,6 +28,55 @@ def slow_print(text, delay=0.05):
         time.sleep(delay)
     print()
 
+
+from apiclient import discovery
+from httplib2 import Http
+from oauth2client import client, file, tools
+import json
+
+"""
+All code for google forms is from google developers pages. I did not wrote it.
+"""
+
+
+SCOPES = "https://www.googleapis.com/auth/forms.responses.readonly"
+DISCOVERY_DOC = "https://forms.googleapis.com/$discovery/rest?version=v1"
+
+store = file.Storage("token.json")
+creds = None
+if not creds or creds.invalid:
+  flow = client.flow_from_clientsecrets("creden.json", SCOPES)
+  creds = tools.run_flow(flow, store)
+
+service = discovery.build(
+    "forms",
+    "v1",
+    http=creds.authorize(Http()),
+    discoveryServiceUrl=DISCOVERY_DOC,
+    static_discovery=False,
+    )
+
+
+# Prints the responses of your specified form:
+form_id = "1eVElX0Ci_jFXhPhmety9IeySqea_B63JYceqm62MN70"
+result = service.forms().responses().list(formId=form_id).execute()
+print(result)
+
+AnswerData = []
+
+for response in result["responses"]:
+    answers = response["answers"]
+    
+    Name = next(iter(answers.get("4d4a31cf", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    Email = next(iter(answers.get("0b6dbdc2", {}).get("textAnswers", {}).get("answers", [{}])), {}).get("value", "")
+    
+    if Name and Email:  # Ensure both name and email exist
+        AnswerData.append({"name": Name, "email": Email})
+
+# Print extracted names and emails as JSON
+print(AnswerData)
+
+
 # path to the CSV files with participant data
 participants_csv = "Coffee Partner Lottery participants.csv"
 
