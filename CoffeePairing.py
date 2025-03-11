@@ -7,6 +7,11 @@ import time
 import sys
 import colorama
 import requests
+from googleapiclient import discovery
+from googleapiclient.discovery import build
+from httplib2 import Http
+from oauth2client import client, file, tools
+import json
 
 def get_conversation_starter():
     url = "https://official-joke-api.appspot.com/random_joke"
@@ -29,10 +34,7 @@ def slow_print(text, delay=0.05):
     print()
 
 
-from apiclient import discovery
-from httplib2 import Http
-from oauth2client import client, file, tools
-import json
+
 
 """
 All code for google forms is from google developers pages. I did not wrote it.
