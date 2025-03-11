@@ -2,7 +2,7 @@ import pandas as pd
 import csv
 import random
 import copy
-import os
+#import os2
 import time
 import sys
 import colorama
@@ -12,6 +12,11 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import client, file, tools
 import json
+
+from google.oauth2.credentials import Credentials
+
+from email.mime.text import MIMEText
+import base64
 
 
 def get_conversation_starter():
@@ -25,7 +30,7 @@ def save_message_to_file(group, message, filename="coffee_groups_messages.txt"):
     with open(filename, "a") as file:
         file.write(f"Group: {', '.join(group)}\n")
         file.write(f"Message: {message}\n\n")
-
+    
 
 
 # printing text with a typing effect
@@ -44,7 +49,11 @@ All code for google forms is from google developers pages. I did not wrote it.
 """
 
 
-SCOPES = "https://www.googleapis.com/auth/forms.responses.readonly"
+SCOPES = [
+    "https://www.googleapis.com/auth/forms.responses.readonly",
+    "https://www.googleapis.com/auth/gmail.send"  # For sending emails
+    ]
+
 DISCOVERY_DOC = "https://forms.googleapis.com/$discovery/rest?version=v1"
 
 store = file.Storage("token.json")
@@ -60,6 +69,36 @@ service = discovery.build(
     discoveryServiceUrl=DISCOVERY_DOC,
     static_discovery=False,
     )
+
+
+# Using Gmail API
+def send_email_via_gmail(group, message, subject="Coffee Group Notification"):
+    service = build("gmail", "v1", credentials=creds)
+
+    sender_email = "Brewbuddies3@gmail.com"
+    
+    # Converting a list of names to a list of mailboxes
+    recipient_emails = [emails[name] for name in group if name in emails]
+
+    if not recipient_emails:
+        print("⚠️ No valid emails found for the given group.")
+        return
+    
+    # email content
+    mime_message = MIMEText(message, "plain", "utf-8")
+    mime_message["to"] = ", ".join(recipient_emails)
+    mime_message["subject"] = subject
+    mime_message["from"] = sender_email
+
+    try:
+        raw_message = mime_message.as_string()
+        raw_message_base64 = base64.urlsafe_b64encode(raw_message.encode("utf-8")).decode("utf-8")
+        message_body = {"raw": raw_message_base64}
+        message = service.users().messages().send(userId="me", body=message_body).execute()
+        print(f"✅ Successfully emailed to: {', '.join(group)}")
+    except Exception as e:
+        print(f"⚠️ Error: {e}")
+
 
 
 # Prints the responses of your specified form:
@@ -215,6 +254,7 @@ for i, group in enumerate(ngroups, start=1):
     message += "" # blank line for spacing between groups
     
     save_message_to_file(group, message, "coffee_groups_messages.txt")
+    send_email_via_gmail(group, message)  # Send emails automatically
     slow_print(colorama.Fore.CYAN + message)
     
 slow_print(colorama.Fore.CYAN + "Enjoy your coffee and great conversations! You're on the perfect blend for connection \n")

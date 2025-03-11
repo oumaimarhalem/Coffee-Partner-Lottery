@@ -18,3 +18,190 @@ Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
 Conversation Starter:
  Dad, can you put my shoes on? I don't think they'll fit me.
 
+Group: Test
+Message: Group 1:     Test                     : | Test@gmail.com
+
+Conversation Starter:
+ I couldn't get a reservation at the library... They were fully booked.
+
+Group: liang, oum rhalem
+Message: Group 2:     liang                    : | julien.l.wang@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Did you hear about the cow who jumped over the barbed wire fence? It was udder destruction.
+
+Group: Marijn de Ruiter, oums rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ Why did the barber win the race? He took a short cut.
+
+Group: oum rhalem
+Message: Group 1:     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why would a guitarist become a good programmer? He's adept at riffing in C#.
+
+Group: Test, liang
+Message: Group 2:     Test                     : | Test@gmail.com
+     liang                    : | julien.l.wang@gmail.com
+
+Conversation Starter:
+ What did Romans use to cut pizza before the rolling cutter was invented? Lil Caesars
+
+Group: Marijn de Ruiter, oums rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ Why do bees hum? Because they don't know the words.
+
+Group: liang, oum rhalem
+Message: Group 1:     liang                    : | julien.l.wang@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why would a guitarist become a good programmer? He's adept at riffing in C#.
+
+Group: Test
+Message: Group 2:     Test                     : | Test@gmail.com
+
+Conversation Starter:
+ Why can't bicycles stand on their own? They are two tired
+
+Group: Marijn de Ruiter, oums rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ What did the Dorito farmer say to the other Dorito farmer? Cool Ranch!
+
+Group: liang
+Message: Group 1:     liang                    : | julien.l.wang@gmail.com
+
+Conversation Starter:
+ What do you give a sick lemon? Lemonaid.
+
+Group: Test, oum rhalem
+Message: Group 2:     Test                     : | Test@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ What do you call a group of killer whales playing instruments? An Orca-stra.
+
+Group: Marijn de Ruiter, oums rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ What’s brown and sounds like a bell? Dung!
+
+Group: Test, oums rhalem
+Message: Group 1:     Test                     : | Test@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ What did the Zen Buddist say to the hotdog vendor? Make me one with everything.
+
+Group: oum rhalem
+Message: Group 2:     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why didn’t the orange win the race? It ran out of juice.
+
+Group: Marijn de Ruiter, liang
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     liang                    : | julien.l.wang@gmail.com
+
+Conversation Starter:
+ What do vegetarian zombies eat? Grrrrrainnnnnssss.
+
+Group: oum rhalem
+Message: Group 1:     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ What kind of music do welders like? Heavy metal.
+
+Group: Marijn de Ruiter, Test
+Message: Group 2:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     Test                     : | Test@gmail.com
+
+Conversation Starter:
+ When does a joke become a dad joke? When it becomes apparent.
+
+Group: liang, oums rhalem
+Message: Group 3:     liang                    : | julien.l.wang@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ If you see a robbery at an Apple Store... Does that make you an iWitness?
+
+Group: Test, oum rhalem
+Message: Group 1:     Test                     : | Test@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why do trees seem suspicious on sunny days? Dunno, they're just a bit shady.
+
+Group: liang, oums rhalem
+Message: Group 2:     liang                    : | julien.l.wang@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ Did you hear about the crime in the parking garage? It was wrong on so many levels.
+
+Group: Marijn de Ruiter
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+
+Conversation Starter:
+ How was the snow globe feeling after the storm? A little shaken.
+
+Group: liang, oum rhalem
+Message: Group 1:     liang                    : | julien.l.wang@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why do pumpkins sit on people’s porches? They have no hands to knock on the door.
+
+Group: Test, oums rhalem
+Message: Group 1:     Test                     : | Test@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ What do you call a bee that can't make up its mind? A maybe.
+
+Group: liang
+Message: Group 2:     liang                    : | julien.l.wang@gmail.com
+
+Conversation Starter:
+ A SQL query walks into a bar, walks up to two tables and asks... 'Can I join you?'
+
+Group: Marijn de Ruiter, oum rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ Why did the Clydesdale give the pony a glass of water? Because he was a little horse
+
+Group: liang, oum rhalem
+Message: Group 1:     liang                    : | julien.l.wang@gmail.com
+     oum rhalem               : | rhalemo@pbl.nl
+
+Conversation Starter:
+ What did the router say to the doctor? It hurts when IP.
+
+Group: Test
+Message: Group 2:     Test                     : | Test@gmail.com
+
+Conversation Starter:
+ What is a tornado's favorite game to play? Twister!
+
+Group: Marijn de Ruiter, oums rhalem
+Message: Group 3:     Marijn de Ruiter         : | marijnthomas@gmail.com
+     oums rhalem              : | o.rhalem@students.uu.nl
+
+Conversation Starter:
+ What is the leading cause of dry skin? Towels
+
