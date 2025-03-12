@@ -1,5 +1,3 @@
-import pandas as pd
-import csv
 import random
 import copy
 #import os2
@@ -12,9 +10,6 @@ from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import client, file, tools
 import json
-
-from google.oauth2.credentials import Credentials
-
 from email.mime.text import MIMEText
 import base64
 
@@ -150,24 +145,6 @@ while True:
 opairs = set()
 
 DELIMITER=','
-
-
-'''
-# load all previous pairings (to avoid redundancies)
-if os.path.exists(all_pairs_csv):
-    with open(all_pairs_csv, "r") as file:
-        csvreader = csv.reader(file, delimiter=DELIMITER)
-        for row in csvreader:
-            group = []
-            for i in range(0,len(row)):
-                group.append(row[i])                        
-            opairs.add(tuple(group))
-
-
-
-# load participant's data
-formdata = pd.read_csv(participants_csv, sep=DELIMITER)
-'''
 
 
 # create duplicate-free list of participants
