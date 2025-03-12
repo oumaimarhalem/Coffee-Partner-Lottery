@@ -44,6 +44,9 @@ def slow_print(text, delay=0.05):
 
 
 
+slow_print("If you want to fill out the sign up forms, please do at:")
+slow_print("https://docs.google.com/forms/d/e/1FAIpQLSfCiLAIa-3Ssd_ewvwe0FpeLdz75fYGwhlwtJH3ydAnesk2cQ/viewform")
+
 """
 All code for google forms is from google developers pages. I did not wrote it.
 """
@@ -104,7 +107,7 @@ def send_email_via_gmail(group, message, subject="Coffee Group Notification"):
 # Prints the responses of your specified form:
 form_id = "1eVElX0Ci_jFXhPhmety9IeySqea_B63JYceqm62MN70"
 result = service.forms().responses().list(formId=form_id).execute()
-print(result)
+#print(result)
 
 AnswerData = []
 
@@ -118,10 +121,10 @@ for response in result["responses"]:
         AnswerData.append({"name": Name, "email": Email})
 
 # Print extracted names and emails as JSON
-print(AnswerData)
+#print(AnswerData)
 
 num_participants=len(AnswerData)
-print(num_participants)
+#print(num_participants)
 # ask user for group size
 while True:
     try:
